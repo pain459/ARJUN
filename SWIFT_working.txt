@@ -1,0 +1,19 @@
+The SWIFT (Society for Worldwide Interbank Financial Telecommunication) payment system is a global network that enables financial institutions to send and receive information about financial transactions in a secure, standardized, and reliable manner. SWIFT is not a payment system itself but rather a messaging network that facilitates the communication between banks and other financial institutions for international money transfers.
+
+Here's how the SWIFT system works:
+
+1. Messaging Standard: SWIFT provides a standardized format for messages that banks and financial institutions use to communicate. These messages can include payment instructions, confirmations, and other financial transactions.
+
+2. Secure Network: The SWIFT network ensures that these messages are transmitted securely between financial institutions around the world. Each institution on the SWIFT network has a unique SWIFT code (also known as a Bank Identifier Code or BIC), which identifies the specific bank and branch.
+
+3. Interbank Transactions: When a customer wants to send money to someone in another country, their bank will use the SWIFT network to send a payment instruction to the recipient's bank. The banks involved in the transaction may use intermediaries (correspondent banks) if they do not have a direct relationship.
+
+4. Global Reach: SWIFT is used by over 11,000 financial institutions in more than 200 countries, making it the most widely used system for international payments.
+
+5. Speed and Efficiency: Although SWIFT messages are transmitted almost instantly, the actual transfer of funds may take a few days, depending on the banks and countries involved.
+
+6. Fees: Banks typically charge fees for sending and receiving SWIFT payments, and the fees can vary depending on the banks and the amount of money being transferred.
+
+
+
+SWIFT plays a crucial role in the global financial system, enabling cross-border payments, securities transactions, and trade finance in a standardized and secure manner.
