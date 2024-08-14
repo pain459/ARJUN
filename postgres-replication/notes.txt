@@ -1,0 +1,25 @@
+Start the servers
+docker-compose up -d
+
+This command will:
+
+Start the postgres-master container.
+The setup-replication.sh script in the master will create a replication user and configure PostgreSQL.
+Start the postgres-replica container.
+The setup-replication.sh script in the replica will wait for the master to be ready, then initiate the replication process.
+Step 5: Verify Replication
+You can verify that replication is working by connecting to both the master and the replica and checking the replication status.
+
+Check replication status on the master:
+docker exec -it postgres-master psql -U postgres -c "SELECT * FROM pg_stat_replication;"
+
+Check the replica:
+On the replica, you should see the data replicating from the master. You can check the replica’s status:
+
+docker exec -it postgres-replica psql -U postgres -c "SELECT * FROM pg_stat_wal_receiver;"
+
+Step 6: Scaling Replicas
+You can scale the number of replicas by adding more services to the docker-compose.yml file or by using Docker Compose scaling features:
+
+docker-compose up --scale postgres-replica=3 -d
+This command would create three replicas.
