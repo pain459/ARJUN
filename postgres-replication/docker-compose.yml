@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres-master:
+    image: postgres:15
+    container_name: postgres-master
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: masterpassword
+      POSTGRES_DB: mydb
+    volumes:
+      - ./master_data:/var/lib/postgresql/data
+      - ./scripts/master:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    networks:
+      - pg-network
+
+  postgres-replica:
+    image: postgres:15
+    container_name: postgres-replica
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: replicapassword
+      POSTGRES_DB: mydb
+      REPLICATE_FROM: postgres-master
+    volumes:
+      - ./replica_data:/var/lib/postgresql/data
+      - ./scripts/replica:/docker-entrypoint-initdb.d
+    depends_on:
+      - postgres-master
+    networks:
+      - pg-network
+    ports:
+      - "5433:5432"
+
+networks:
+  pg-network:
+    driver: bridge
