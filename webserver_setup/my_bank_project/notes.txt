@@ -1,0 +1,10 @@
+To start the app
+
+uvicorn app.main:app --reload
+
+Sample operations
+
+Create a bank: POST /banks/ with name and country in the body.
+Read a bank: GET /banks/{bank_id} to get bank details by ID.
+Update a bank: PUT /banks/{bank_id} with the updated fields in the body.
+Delete a bank: DELETE /banks/{bank_id} to delete a bank by ID.
