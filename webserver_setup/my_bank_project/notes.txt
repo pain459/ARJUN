@@ -8,3 +8,41 @@ Create a bank: POST /banks/ with name and country in the body.
 Read a bank: GET /banks/{bank_id} to get bank details by ID.
 Update a bank: PUT /banks/{bank_id} with the updated fields in the body.
 Delete a bank: DELETE /banks/{bank_id} to delete a bank by ID.
+
+### Sample curl calls.
+
+1. Create a Bank
+To create a new bank, use the POST method. You need to provide the name and country as form data.
+
+curl -X POST "http://127.0.0.1:8000/banks/" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "name=Bank of America&country=US"
+
+2. Read a Bank
+To retrieve the details of a specific bank, use the GET method and pass the bank_id as a path parameter.
+
+curl -X GET "http://127.0.0.1:8000/banks/USBOA202308144a3f2d" \
+     -H "accept: application/json"
+Note: Replace USBOA202308144a3f2d with the actual bank_id you got from the create operation.
+
+3. Update a Bank
+To update an existing bank's details, use the PUT method. You need to provide the updated data in JSON format in the request body.
+
+curl -X PUT "http://127.0.0.1:8000/banks/USBOA202308144a3f2d" \
+     -H "Content-Type: application/json" \
+     -d '{"name": "Bank of America", "country": "USA"}'
+Note: Again, replace USBOA202308144a3f2d with the actual bank_id.
+
+4. Delete a Bank
+To delete a specific bank, use the DELETE method with the bank_id as a path parameter.
+
+curl -X DELETE "http://127.0.0.1:8000/banks/USBOA202308144a3f2d" \
+     -H "accept: application/json"
+Note: Replace USBOA202308144a3f2d with the actual bank_id.
+
+Explanation of the curl Commands
+-X [HTTP_METHOD]: Specifies the HTTP method (GET, POST, PUT, DELETE).
+-H "Content-Type: application/json": Sets the content type to JSON (used for PUT requests).
+-H "Content-Type: application/x-www-form-urlencoded": Sets the content type to form data (used for POST requests).
+-d '[data]': Specifies the data to be sent in the body of the request.
+-H "accept: application/json": Sets the Accept header to indicate that the client expects a JSON response.
